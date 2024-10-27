@@ -1,6 +1,6 @@
 @use "../abstracts";
 .dropdown {
-    // display: none;
+    display: none;
     position: absolute;
     left: 0;
     padding-top: 54px;
@@ -29,10 +29,11 @@
 
 .top-menu {
     --main-column-width: 292px;
+    --max-inner-height: calc(min(582px, 100vh - 158px) - var(--inner-padding) * 2);
     position: relative;
 
     &__main {
-        height: calc(min(582px, 100vh - 158px) - var(--inner-padding) * 2);
+        height: var(--max-inner-height);
         width: var(--main-column-width);
         border-right: 1px solid var(--top-menu-border-color);
         overflow-y: auto;
@@ -95,11 +96,11 @@
     }
 
     &__item {
-        &:hover .sub-menu {
+        &--active .sub-menu {
             display: grid;
         }
     }
-
+    &__item--active > &__link,
     &__item:hover > &__link {
         color: #0071dc;
         font-weight: 500;
@@ -108,11 +109,19 @@
 
 .sub-menu {
     position: absolute;
-    // display: none;
-    display: grid;
+    display: none;
+    // display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--inner-padding);
     inset: 0 0 0 var(--main-column-width);
     padding-left: var(--inner-padding);
     overflow-y: auto;
+    &--not-main {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        position: initial;
+        inset: initial;
+        height: var(--max-inner-height);
+        padding-left: 0;
+    }
 }
