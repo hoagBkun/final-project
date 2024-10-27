@@ -31,7 +31,7 @@
     position: relative;
 
     &__main {
-        max-height: calc(min(582px, 100vh - 158px) - var(--inner-padding) * 2);
+        height: calc(min(582px, 100vh - 158px) - var(--inner-padding) * 2);
         width: var(--main-column-width);
         border-right: 1px solid var(--top-menu-border-color);
         overflow-y: auto;
@@ -41,6 +41,10 @@
 .menu-column {
     display: flex;
     gap: 14px;
+
+    + .menu-column {
+        margin-top: var(--inner-padding);
+    }
 
     &__icon {
         position: relative;
@@ -93,6 +97,9 @@
 
 .sub-menu {
     position: absolute;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--inner-padding);
     inset: 0 0 0 var(--main-column-width);
-    background: orange;
+    padding-left: var(--inner-padding);
 }
