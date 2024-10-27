@@ -1440,7 +1440,7 @@ html.dark {
   gap: 14px;
 }
 .menu-column + .menu-column {
-  margin-top: var(--inner-padding);
+  margin-top: 20px;
 }
 .menu-column__icon {
   position: relative;
@@ -1448,11 +1448,16 @@ html.dark {
   width: 36px;
   height: 36px;
 }
+@media (max-width: 1199.98px) {
+  .menu-column__icon {
+    display: none;
+  }
+}
 .menu-column__content {
   flex: 1;
 }
 .menu-column__icon-1 {
-  object-fit: cover;
+  object-fit: contain;
   width: 30px;
   height: 30px;
 }
@@ -1460,7 +1465,7 @@ html.dark {
   position: absolute;
   right: 0;
   bottom: 0;
-  object-fit: cover;
+  object-fit: contain;
   width: 24px;
   height: 24px;
   filter: var(--menu-column-icon-color);
@@ -1480,7 +1485,10 @@ html.dark {
   font-size: 1.4rem;
   line-height: 142.857%;
 }
-.menu-column__link:hover {
+.menu-column__item:hover .sub-menu {
+  display: grid;
+}
+.menu-column__item:hover > .menu-column__link {
   color: #0071dc;
   font-weight: 500;
 }
@@ -1492,6 +1500,7 @@ html.dark {
   gap: var(--inner-padding);
   inset: 0 0 0 var(--main-column-width);
   padding-left: var(--inner-padding);
+  overflow-y: auto;
 }
 
 /*# sourceMappingURL=main.css.map */
