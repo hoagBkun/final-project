@@ -1,0 +1,88 @@
+// filter button
+
+.filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    height: 36px;
+
+    color: var(--filter-btn-color);
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 142.857%;
+
+    border-radius: 6px;
+    background: var(--filter-btn-bg-color);
+    padding: 0 14px;
+}
+
+//like button
+
+.like-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: var(--like-btn-bg-color);
+    box-shadow: 0px 20px 60px var(--like-btn-bg-shadow);
+    border-radius: 100%;
+
+    &:not(&--liked) .like-btn__icon--liked {
+        display: none;
+    }
+
+    &--liked &__icon {
+        display: none;
+    }
+
+    &__icon--liked {
+        margin-top: 6px;
+    }
+}
+
+.btn {
+    height: 46px;
+    padding: 0 20px;
+
+    border-radius: 6px;
+    background: #f8f8fb;
+    font-size: 1.4rem;
+    font-weight: 500;
+    user-select: none;
+
+    + .btn {
+        margin-left: 20px;
+    }
+
+    &--text {
+        color: #9e9da8;
+        background: transparent;
+        font-weight: 400;
+    }
+
+    &--primary {
+        background: #ffb700;
+        color: #171c28;
+    }
+
+    &--outline {
+        border: 1px solid #d2d1d6;
+        background: #fff;
+    }
+
+    &--rounded {
+        border-radius: 9999px;
+    }
+
+    &[disabled],
+    &--disable {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
